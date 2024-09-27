@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import RestaurantCategory from "./RestaurantCategory";
@@ -24,7 +23,7 @@ const RestaurantMenu = () =>{
   
     const {name, cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info;
   
-    const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card.card;
+    // const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card.card;
    
    console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
    
@@ -32,6 +31,8 @@ const RestaurantMenu = () =>{
     (c) => c.card?.["card"]?.["@type"] === 
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
+
+ console.log(categories);
 
   return (
     <div className="text-center">

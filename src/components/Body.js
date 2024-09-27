@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCart, {withPromotedLabel} from "./RestaurantCart";
-// import Shimmer from "./Shimmer";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
 // import UserContext from "../utils/UserContext";
@@ -13,7 +12,7 @@ const Body = () =>{
 
     const searcHandler = () =>{
       setListOfRestaurants(listOfRestaurants.filter((restaurant)=>{
-        restaurant.data.includes(searchText)
+        return restaurant.data.includes(searchText)
       }))
     }
 
@@ -33,7 +32,7 @@ const Body = () =>{
     };
 
     // const {setUserName, loggedInUser} = useContext(UserContext);
-
+ 
     return listOfRestaurants.length === 0 ?(
      <ShimmerUi /> 
     ):(
@@ -54,9 +53,6 @@ const Body = () =>{
             }}>
                 Top Rated Restaurants
             </button>
-
-            {/*<label>username: </label>
-             <input type="text" className="p-2 border border-black m-2" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)} /> */}
         </div>
         <div className="flex flex-wrap">
           {listOfRestaurants.map((restaurant) => (

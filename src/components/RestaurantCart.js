@@ -1,9 +1,5 @@
-import UserContext from "../utils/UserContext";
-import { useContext } from "react";
-
-const RestaurantCart = (props) =>{
-    const {loggedInUser} = useContext(UserContext);
-    const {resData} = props;
+const RestaurantCart = ({resData}) =>{
+    // const {resData} = props;
     const {cloudinaryImageId ,name, cuisines, avgRating, costForTwo} = resData?.info;
    return(
     <div className="m-4 p-4 w-60 rounded-lg bg-gray-100 hover:bg-gray-300 hover:shadow-lg " >
@@ -12,7 +8,6 @@ const RestaurantCart = (props) =>{
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} stars </h4>
       <h4>{costForTwo}</h4>
-      <h1 className="font-bold">{loggedInUser}</h1>
       {/* <h4>{slaString} minutes</h4> */}
     </div>
    );
